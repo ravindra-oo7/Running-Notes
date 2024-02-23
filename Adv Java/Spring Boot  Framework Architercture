@@ -1,0 +1,76 @@
+# Layers in spring boot architecture :-
+
+
+-Spring Boot is a popular framework for building Java-based web applications. 
+-Its architecture is designed to be simple and opinionated, allowing developers to quickly build and deploy applications with minimal configuration. 
+
+-The architecture of a typical Spring Boot application includes various layers:
+
+1) Controller Layer:
+
+-Responsible for handling incoming HTTP requests.
+-Contains annotated classes (usually with '@RestController' or '@Controller' annotations) 
+-Define the entry points of the application.
+-Processes user input, interacts with the service layer, and returns the appropriate HTTP response.
+
+2) Service Layer:
+
+-Contains the business logic of the application.
+-Separates the application's business concerns from the presentation layer.
+-Typically annotated with '@Service'.
+-Calls to external systems or databases are often handled here.
+
+3) Repository Layer:
+
+-Responsible for data access and persistence.
+-Uses Spring Data or other ORM frameworks to interact with databases.
+-Annotated with '@Repository'.
+
+4) Model Layer (Entities):
+
+-Represents the data model and entities of the application.
+-Annotated with '@Entity' for ORM frameworks like Hibernate.
+
+5)View Layer:
+
+-In the context of Spring Boot, the view layer is often implemented using templates (e.g., Thymeleaf, FreeMarker) or as a RESTful API returning JSON responses.
+
+6) Configuration Layer:
+
+-Handles configuration of the application.
+-Uses annotations like '@Configuration', '@Bean', and '@Value' to configure beans and properties.
+
+7) Security Layer:
+
+-Deals with application security.
+-Utilizes Spring Security for authentication and authorization.
+
+8) Test Layer:
+
+-Includes test classes for unit, integration, and end-to-end testing.
+-Uses JUnit, TestNG, or other testing frameworks.
+
+9) Aspect Layer:
+
+-Uses aspects to separate cross-cutting concerns such as logging, security, and transactions.
+-Annotated with '@Aspect'.
+
+10) Exception Handling Layer:
+
+-Manages exceptions and errors thrown by the application.
+-Custom exception handlers can be implemented using '@ControllerAdvice' annotated classes.
+
+-Spring Boot applications often follow the principles of the Model-View-Controller (MVC) pattern, with additional layers for handling data access, security, and configuration. 
+-However, the exact structure can vary based on the specific requirements and preferences of the development team.
+
+
+
+
+
+
+
+
+
+
+
+

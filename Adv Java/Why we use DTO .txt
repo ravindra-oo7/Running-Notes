@@ -1,0 +1,51 @@
+Why we use DTO ?
+
+Ans:-
+
+-Data Transfer Objects (DTOs) are used in software development to address specific needs related to data transfer between layers of an application, especially between the service layer and the presentation layer. 
+
+-Here are some reasons why DTOs are commonly used:
+
+1) Reducing Overhead and Bandwidth:
+
+-DTOs allow you to transfer only the necessary data between layers, minimizing the amount of data sent over the network. 
+-This can be crucial in scenarios where bandwidth is limited or where you want to optimize performance.
+
+2) Encapsulation and Abstraction:
+
+-DTOs provide a way to encapsulate and abstract the internal structure of domain objects. 
+-They allow you to present a simplified and specific view of the data, hiding the implementation details and complexity of the underlying domain model.
+
+3) Avoiding "Over-fetching" and "Under-fetching":
+
+-In a client-server architecture, the client might need only a subset of the data available in the server's domain model. 
+-By using DTOs, you can avoid over-fetching (retrieving more data than needed) or under-fetching (not retrieving enough data) in your API responses.
+
+4) Versioning and Compatibility:
+
+-DTOs can facilitate versioning in APIs. 
+-When evolving your application, you may introduce new fields or change the structure of domain objects. 
+-DTOs allow you to manage versioning more effectively by controlling what data is exposed in different API versions.
+
+5) Security:
+
+-DTOs can be used to exclude sensitive information from being sent to the client. 
+-For example, passwords or other confidential information can be excluded from DTOs even if they are present in the domain model.
+
+6) Flexibility in Presentation Logic:
+
+-DTOs allow you to tailor the data to the specific requirements of the presentation layer. 
+-You can shape the data in a way that makes it easier for the client-side application to consume without being tied directly to the structure of the backend domain model.
+
+7) Avoiding Lazy Loading Issues:
+
+-In JPA and Hibernate, lazy loading can lead to issues if the entity is accessed outside of the transactional context. 
+-Using DTOs helps avoid lazy loading problems by allowing you to fetch only the necessary data when needed.
+
+8) Optimizing Query Performance:
+
+-When dealing with database queries, DTOs enable you to create specific queries that fetch only the required fields, optimizing performance and reducing the amount of data transferred between the database and the application.
+
+
+-In summary, DTOs provide a way to optimize data transfer, encapsulate domain model complexity, and tailor data for specific use cases. 
+-They play a crucial role in maintaining a clean and efficient architecture, especially in scenarios where data needs to be transferred between different layers or components of an application.

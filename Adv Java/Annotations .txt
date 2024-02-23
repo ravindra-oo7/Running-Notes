@@ -1,0 +1,447 @@
+@Entity and @Table Annotations:-
+
+-In Spring Boot, the @Entity and @Table annotations are used to define and customize the mapping of a Java class to a relational database table. 
+-These annotations are part of the Java Persistence API (JPA) and are commonly used with Spring Data JPA to simplify database operations.
+
+1) @Entity:
+
+-The @Entity annotation is used to mark a Java class as a JPA entity. 
+-An entity is a plain Java object (POJO) that represents a table in a relational database.
+-Each instance of an entity corresponds to a row in the database table, and each field of the entity corresponds to a column in the table.
+-The entity class should have a no-argument constructor, and 
+its fields should be annotated with JPA annotations to specify their roles in the mapping.
+
+Code:-
+	import javax.persistence.Entity;
+	import javax.persistence.Id;
+
+	@Entity
+	public class User 
+	{
+	  @Id
+  	  private Long id;
+
+	  private String username;
+	  private String email;
+
+   	 // getters and setters	
+	}
+
+
+2) @Table:
+
+-The @Table annotation is used to provide additional information about the database table to which the entity is mapped.
+-It allows you to customize the name of the table, schema, and other table-related properties.
+
+Code:-
+	import javax.persistence.Entity;
+	import javax.persistence.Id;
+	import javax.persistence.Table;
+	
+	@Entity
+	@Table(name = "users", schema = "public")
+	public class User 
+	{
+	    @Id
+	    private Long id;
+	
+	    private String username;
+	    private String email;
+
+	    // getters and setters
+	}
+
+-In this example, the @Table annotation is used to specify that the User entity is mapped to a table named "users" in the "public" schema of the database.
+
+-When using Spring Boot with Spring Data JPA, the @Entity and @Table annotations help define the domain model and its mapping to the underlying database structure. 
+-Spring Boot's auto-configuration simplifies the setup, and repositories can be created to perform common database operations without writing explicit SQL queries.
+
+====================================================================================
+
+@ID and @GeneratedValue annotations :-
+
+-In the context of Java Persistence API (JPA) and database entities, 
+@Id and @GeneratedValue are annotations used to define and configure primary key fields in an entity class.
+
+1) @Id:
+
+-The @Id annotation is used to mark a field as the primary key of the entity. 
+-It indicates that the field's value uniquely identifies each record in the corresponding database table.
+
+Example:
+
+	import javax.persistence.Entity;
+	import javax.persistence.Id;
+
+	@Entity
+	public class Student {
+	    @Id
+	    private Long id;
+	
+	    // Other fields and methods
+	}
+
+
+In this example, the id field is marked with @Id, signifying that it is the primary key for the Student entity.
+
+2) @GeneratedValue:
+
+-The @GeneratedValue annotation is used in conjunction with @Id to specify how the primary key value should be generated. 
+-It is typically used for auto-incrementing or sequencing primary key values.
+
+Example:
+
+	import javax.persistence.Entity;
+	import javax.persistence.GeneratedValue;
+	import javax.persistence.GenerationType;
+	import javax.persistence.Id;
+	
+	@Entity
+	public class Product {
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
+	
+	    // Other fields and methods
+	}
+
+
+-The strategy attribute of @GeneratedValue defines the strategy for generating the primary key value. 
+-In the example above, GenerationType.IDENTITY is used, indicating that the database will automatically assign an identity value (auto-increment) to the id field.
+
+Other common strategies include:
+
+-GenerationType.AUTO:
+ The persistence provider chooses an appropriate strategy (e.g., auto-increment, sequence) based on the underlying database.
+-GenerationType.SEQUENCE:
+ Uses a database sequence to generate unique values.
+-GenerationType.TABLE:
+ Uses a separate database table to simulate a sequence.
+
+Using these annotations, you can define and configure primary key fields in your JPA entities, allowing for automatic generation of primary key values and proper mapping to the underlying database structure.
+
+===========================================================================================
+
+@Column :-
+
+-The @Column annotation in Java Persistence API (JPA) is used to specify the mapping of a persistent entity's property (field or getter method) to a database column. 
+-It allows you to customize various attributes of the column, such as its name, length, nullable property, and more.
+
+Here's an example of how to use @Column:
+
+	import javax.persistence.Column;
+	import javax.persistence.Entity;
+	import javax.persistence.Id;
+	
+	@Entity
+	public class Employee {
+	
+	    @Id
+	    private Long id;
+	
+	    @Column(name = "employee_name", length = 50, nullable = false)
+	    private String name;
+	
+	    @Column(name = "employee_salary")
+	    private double salary;
+	
+	    // Constructors, getters, setters, and other methods
+	}
+
+
+In this example:
+
+-The @Column annotation is used to customize the mapping for the name and salary fields.
+-name = "employee_name" specifies that the name field should be mapped to a database column named "employee_name."
+-length = 50 indicates that the maximum length of the column is 50 characters.
+-nullable = false specifies that the column cannot have a null value.
+
+Additional attributes that can be used with @Column include:
+
+-unique: Specifies whether the column values must be unique.
+-insertable and updatable: Control whether the column should be included in SQL INSERT and UPDATE statements.
+-columnDefinition: Allows you to provide a custom SQL fragment for the column definition.
+
+Here's an example with more attributes:
+
+@Column(name = "email", unique = true, length = 100, nullable = false, insertable = true, updatable = false, columnDefinition = "VARCHAR(100) DEFAULT 'N/A'")
+private String email;
+
+
+In this example:
+
+-unique = true specifies that the column values must be unique.
+-insertable = true indicates that the column should be included in SQL INSERT statements.
+-updatable = false specifies that the column should not be included in SQL UPDATE statements.
+-columnDefinition = "VARCHAR(100) DEFAULT 'N/A'" provides a custom SQL fragment for the column definition, including its data type and default value.
+-The @Column annotation allows you to customize how your entity's properties are mapped to database columns, providing flexibility in defining the database schema.
+=====================================================================================
+
+what is lombok ?
+
+Ans:-
+
+-Lombok is a library for Java that helps reduce boilerplate code in your source files.
+-It provides annotations to generate common code automatically during compilation, reducing the need for developers to write repetitive and mundane code manually.
+
+Here are some key features and annotations provided by Lombok:
+
+1) @Getter and @Setter:
+
+-The @Getter and @Setter annotations generate getter and setter methods for class fields, reducing the need to write these methods manually.
+
+Example:
+
+
+	import lombok.Getter;
+	import lombok.Setter;
+	
+	@Getter @Setter
+	public class MyClass {
+	    private String name;
+	    private int age;
+	}
+
+
+2) @NoArgsConstructor, @RequiredArgsConstructor, and @AllArgsConstructor :
+
+-These annotations generate constructors automatically.
+
+-@NoArgsConstructor creates a no-argument constructor.
+-@RequiredArgsConstructor generates a constructor with parameters for final fields.
+-@AllArgsConstructor generates a constructor with parameters for all fields.
+
+Example:
+
+
+	import lombok.AllArgsConstructor;
+	import lombok.NoArgsConstructor;
+	import lombok.RequiredArgsConstructor;
+	
+	@NoArgsConstructor
+	@RequiredArgsConstructor
+	@AllArgsConstructor
+	public class MyClass {
+	    private final String name;
+	    private int age;
+	}
+
+3) @Data:
+
+-The @Data annotation combines @Getter, @Setter, @ToString, @EqualsAndHashCode, and @RequiredArgsConstructor into a single, concise annotation.
+
+Example:
+
+
+	import lombok.Data;
+	
+	@Data
+	public class MyClass {
+	    private String name;
+	    private int age;
+	}
+
+
+4) @Builder:
+
+-The @Builder annotation generates a builder pattern for your class, simplifying the creation of instances with many optional parameters.
+
+Example:
+
+
+	import lombok.Builder;
+	
+	@Builder
+	public class MyClass {
+	    private String name;
+	    private int age;
+	}
+	
+
+5) @Slf4j:
+
+-The @Slf4j annotation generates a logger field for the class using the Simple Logging Facade for Java (SLF4J).
+
+Example:
+
+
+	import lombok.extern.slf4j.Slf4j;
+	
+	@Slf4j
+	public class MyClass {
+	    public void myMethod() {
+	        log.info("Logging with Lombok!");
+	    }
+	}
+
+
+-To use Lombok in your project, you need to include the Lombok library as a dependency and 
+-configure your IDE to recognize and process Lombok annotations during compilation. 
+-It can significantly reduce the amount of boilerplate code, making your codebase cleaner and more maintainable.
+
+=========================================================================================
+
+@Builder annotation :-
+
+-The @Builder annotation in Java, often used in conjunction with Lombok, 
+is a convenient way to implement the Builder pattern for your classes. 
+-This annotation generates a builder class with methods for conveniently constructing instances of your class, especially when dealing with objects that have many optional parameters.
+
+Here's a basic example of using @Builder:
+
+
+	import lombok.Builder;
+	import lombok.Getter;
+	
+	@Getter
+	@Builder
+	public class Person {
+	    private String firstName;
+	    private String lastName;
+	    private int age;
+	    private String address;
+	}
+
+
+	// Usage:
+
+	Person person = Person.builder()
+	    .firstName("John")
+	    .lastName("Doe")
+	    .age(30)
+	    .address("123 Main St")
+	    .build();
+
+
+In this example:
+
+-The @Builder annotation is applied to the Person class.
+-Lombok generates a PersonBuilder inner class with methods for setting each field.
+-The build() method creates an instance of Person with the specified values.
+-The @Builder annotation simplifies the creation of instances by providing a fluent API for setting values. 
+-It's especially useful when dealing with classes that have a large number of optional parameters or when you want to create immutable objects.
+
+Additional features of @Builder:
+
+1) Default Values:
+
+-You can provide default values for fields using the @Builder.Default annotation.
+
+
+	@Builder
+	public class Person {
+	    private String firstName;
+	    private String lastName;
+	    @Builder.Default
+	    private int age = 25;
+	    private String address;
+	}
+
+
+2) Chaining:
+
+-The generated builder methods return the builder instance, allowing for method chaining.
+
+
+	Person person = Person.builder()
+	    .firstName("John")
+	    .lastName("Doe")
+	    .age(30)
+	    .address("123 Main St")
+	    .build();
+
+
+3) Fluent API:
+
+-The generated builder provides a fluent API for setting values, making the code more readable.
+
+
+Person.builder().firstName("John").lastName("Doe").build();
+
+
+4) Builder Customization:
+
+-You can customize the builder class by providing your own methods in the original class.
+
+
+	@Builder
+	public class Person {
+	    private String firstName;
+	    private String lastName;
+	
+	    public static class PersonBuilder {
+	        // Custom methods
+	    }
+	}
+
+
+-The @Builder annotation, along with other Lombok annotations, helps reduce boilerplate code and improves the readability of your code when dealing with complex object creation scenarios.
+
+==========================================================================================
+
+@ControllerAdvice :-
+
+
+-In Spring Boot, @ControllerAdvice is an annotation that is used to define global controllers advice for all controllers in your application. 
+-It allows you to handle exceptions globally, apply model attributes to all controllers, and more.
+-It is particularly useful for centralized exception handling and applying common logic across multiple controllers.
+
+# Global Exception Handling:
+
+-You can use @ControllerAdvice to define methods that handle exceptions globally across all controllers. 
+-These methods annotated with @ExceptionHandler can handle specific exception types or be a fallback for any unhandled exception.
+
+
+	@ControllerAdvice
+	public class GlobalExceptionHandler {
+	
+	    @ExceptionHandler(Exception.class)
+	    public ResponseEntity<String> handleException(Exception ex) 
+		{
+	        	return new ResponseEntity<>("An error occurred: " + ex.getMessage(),
+							 HttpStatus.INTERNAL_SERVER_ERROR);
+	   	}
+	
+	}
+
+------------------------------------------------------------------------------------------------
+
+@RestControllerAdvice :- 
+
+
+-In Spring Boot, @RestControllerAdvice is a specialized version of @ControllerAdvice that is specifically tailored for RESTful web services.
+-It combines the functionality of @ControllerAdvice with the @ResponseBody annotation, making it suitable for handling exceptions and providing advice for REST controllers.
+
+-Global Exception Handling for REST Controllers:
+
+-You can use @RestControllerAdvice to define methods that handle exceptions globally for all REST controllers. 
+-The methods annotated with @ExceptionHandler can handle specific exception types or be a fallback for any unhandled exception.
+
+
+	@RestControllerAdvice
+	public class GlobalExceptionHandler {
+	
+		@ExceptionHandler(Exception.class)
+		public ResponseEntity<String> handleException(Exception ex)
+		{
+
+	        return new ResponseEntity<>("An error occurred: " + 
+						ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+
+		}
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
