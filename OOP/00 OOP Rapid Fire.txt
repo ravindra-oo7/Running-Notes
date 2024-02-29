@@ -1,0 +1,328 @@
+Que 01. what is Object oriented concept? 
+what is difference between object-based, object-oriented and fully object-oriented language?
+
+Ans:-
+- Object-oriented programming (OOP) is a programming paradigm that organizes code into objects, which are instances of classes. 
+-These objects can encapsulate data and behavior, allowing for a modular and structured approach to software development. 
+
+-The key principles of OOP include:
+
+1) Encapsulation: 
+-Encapsulation is the bundling of data and the methods that operate on that data into a single unit, known as a class. 
+-It helps in hiding the internal details of an object and exposing only what is necessary.
+
+2) Inheritance: 
+-Inheritance allows a class (subclass or derived class) to inherit properties and behaviors from another class (superclass or base class). 
+-It promotes code reusability and establishes a relationship between classes.
+
+3) Polymorphism: 
+-Polymorphism allows objects of different classes to be treated as objects of a common base class. 
+-It enables a single interface to represent different types or forms.
+-This concept includes method overriding(Runtime polymorphism) and method Overloading(Compiletime polymorphism).
+
+4) Abstraction: 
+-It hides the irrelevant details while exposing the neccessary parts only.
+-The process of simplifying complex systems by modeling classes based on the essential characteristics and ignoring unnecessary details.
+-It focuses on what an object does rather than how it does it.
+
+## The differences between object-based, object-oriented, and fully object-oriented languages:
+
+1) Object-Based Programming Language:
+
+-Object-based languages support the concept of objects but may not fully adhere to all principles of OOP.
+-These languages may lack features like inheritance or polymorphism, making them less flexible than fully object-oriented languages.
+-Ex:- JavaScript and VBScript.
+
+2) Object-Oriented Programming Language:
+
+-Object-oriented languages adhere to the fundamental principles of OOP, including encapsulation, inheritance, polymorphism, and abstraction.
+-They provide a structured and modular approach to designing and implementing software.
+-Ex:- Java, C++, and Python.
+
+3) Fully Object-Oriented Programming Language:
+
+-Languages that strictly adhere to all aspects of OOP without any compromises.
+-Have features which treats everything inside program as objects.
+-A fully object-oriented language would ensure that every programming construct.
+-It doesn't support primitive datatype(eg.int,char,float,bool,etc)
+-While some languages claim to be fully object-oriented, the practicality of such a claim can be debated.
+
+-In summary, object-oriented programming is a paradigm that emphasizes the use of objects, 
+-and the terms "object-based" and "object-oriented" describe the level of adherence to OOP principles in a programming language, 
+-with the latter indicating a more comprehensive implementation of these principles. 
+-The term "fully object-oriented" is less commonly used and may imply a stricter interpretation of OOP principles.
+
+================================================================================================================
+
+Que 02. What are advantages of Object Oriented Programming?
+What is Data Security?
+
+Ans:-
+# Advantages of Object-Oriented Programming (OOP):
+
+1) Modularity: 
+-OOP promotes modularity by encapsulating the implementation details within classes. 
+-This makes it easier to manage and maintain code.
+-Promotes code Reusability.
+
+2) Reusability: 
+-OOP allows for the reuse of classes and objects in different parts of a program, promoting code reusability and reducing redundancy.
+
+3) Flexibility: 
+-OOP provides flexibility through polymorphism, allowing the same interface to represent different types or forms.
+
+4) Ease of Maintenance: 
+-With encapsulation, changes to the internal implementation of a class do not affect other parts of the program, making maintenance easier.
+
+5) Enhanced Code Organization: 
+-OOP helps organize code in a more natural and intuitive way, making it easier to understand and work with.
+
+# Data Security :
+
+-Data security in the context of Object-Oriented Programming (OOP) involves implementing measures to protect sensitive data within the objects and classes of a program. 
+-Here are some key principles and practices related to data security in OOP:
+
+1) Encapsulation:
+-It contributes to data security by restricting direct access to the internal state of an object.
+-Data members within a class are often declared as private, and access to them is controlled through public methods (getters and setters).
+
+
+	public class BankAccount 
+	{
+	   private double balance;	
+	   
+	   public double getBalance() {
+	       	 return balance;
+	   }
+
+	   public void deposit(double amount) {
+	        // Perform validation and update balance
+	        // ...
+	   }
+	
+	   public void withdraw(double amount) {
+	        // Perform validation and update balance
+	        // ...
+	   }
+	}
+
+
+2) Access Control:
+
+-OOP languages like Java provide access control modifiers (e.g., private, protected, public) to regulate the visibility of members (fields and methods) within a class.
+-This helps in controlling who can access and modify sensitive data.
+
+
+	public class Employee {
+		private String name;
+		protected double salary;
+		public String department;
+	
+	    // ...
+	}
+
+
+3) Inheritance and Polymorphism:	
+
+-While inheritance promotes code reuse, it's essential to consider security implications. 
+-Subclasses should carefully extend the behavior of their parent classes without compromising security.
+-Polymorphism allows different classes to be treated as instances of the same class, which can impact data security. 
+-Ensure that overridden methods in subclasses maintain the intended security measures.
+
+4) Immutable Objects:
+
+-Immutable objects, whose state cannot be modified after creation, provide a level of data security. 
+-Once initialized, their values cannot be changed.
+-Use final keyword for fields and avoid providing setters for immutable objects.
+
+
+	public final class ImmutablePerson {
+	    private final String name;
+	    private final int age;
+	
+	    public ImmutablePerson(String name, int age) {
+	        this.name = name;
+	        this.age = age;
+	    }
+	
+	    public String getName() {
+	        return name;
+	    }
+	
+	    public int getAge() {
+	        return age;
+	    }
+	}
+
+
+5) Secure Coding Practices:
+
+-Follow secure coding practices to avoid vulnerabilities. 
+-This includes input validation, avoiding direct user input in queries, and using secure coding libraries.
+-Be cautious of potential security pitfalls like SQL injection, buffer overflows, and other common vulnerabilities.
+-By incorporating these principles and practices into OOP design, developers can enhance the data security of their applications and mitigate potential risks associated with sensitive information.
+
+# Data Security:
+
+-Data security refers to the protection of data from unauthorized access, disclosure, alteration, or destruction. 
+-It involves implementing measures and controls to ensure that data is kept confidential, integrity is maintained, and accessibility is restricted to authorized individuals. 
+
+Key aspects of data security include:
+
+1) Confidentiality: 
+-Ensuring that data is accessible only to those who have the proper authorization to view or modify it.
+
+2) Integrity: 
+-Maintaining the accuracy and consistency of data by preventing unauthorized modifications or alterations.
+
+3) Availability: 
+-Ensuring that data is available when needed and that there are measures in place to prevent disruptions or unauthorized denial of access.
+
+4) Authentication: 
+-Verifying the identity of users or systems to ensure that only authorized entities have access to sensitive data.
+
+5) Authorization: 
+-Granting appropriate permissions and access rights to individuals or systems based on their roles and responsibilities.
+
+6) Encryption: 
+-Using encryption techniques to convert sensitive data into a secure format, making it unreadable to unauthorized users.
+
+7) Backup and Recovery: 
+-Implementing regular data backups and recovery procedures to protect against data loss or damage.
+
+Data security is crucial in various domains, including business, healthcare, finance, and government, to safeguard sensitive information and maintain the trust of users and stakeholders.
+
+====================================================================================================================
+What is class and object ? give real life example.
+
+Ans:-
+
+-In object-oriented programming (OOP), a class is a blueprint or template for creating objects. 
+-It defines a set of attributes (data members) and methods (functions) that the objects of the class will have. 
+-An object, on the other hand, is an instance of a class. 
+-It is a tangible entity that represents a real-world concept and can perform actions based on the defined methods.
+ 
+# Real-Life Example:
+
+-Let's consider the concept of a "Car" as a class and a specific car, say a "Toyota Camry," as an object.
+
+# Class - Car:
+
+Attributes (Data Members):
+	Maker (e.g., Toyota)
+	Model (e.g., Camry)
+	Year of Manufacture
+	Color
+	Engine Capacity
+Methods (Functions):
+	Start Engine
+	Accelerate
+	Brake
+	Start Music
+
+-The class "Car" serves as a blueprint with defined attributes and methods. 
+-It encapsulates the common properties and behaviors that all cars of any make and model may have.
+
+# Object - Toyota Camry:
+
+-An object is an instance of the "Car" class, representing a specific car in the real world.
+
+Attributes (Instance Variables):
+	Make: Toyota
+	Model: Camry
+	Year of Manufacture: 2022
+	Color: Silver
+	Engine Capacity: 2.5L
+Methods (Instance Methods):
+	Start Engine
+	Accelerate
+	Brake
+	Start Music
+
+-The Toyota Camry is a tangible, specific car that possesses the characteristics and behaviors defined by the "Car" class. 
+-It has its own set of values for the attributes and can perform actions based on the methods defined in the class.
+
+
+// Class definition
+	class Car {
+		String make;
+		String model;
+		int yearOfManufacture;
+		String color;
+		double engineCapacity;
+
+	    void startEngine() {
+	          // Code to start the car's engine
+	    }
+
+	    void accelerate() {
+        	// Code to accelerate the car
+	    }
+	
+	    void brake() {
+	        // Code to apply the car's brakes
+	    }
+	
+	    void startMusic() {
+	        // Code to turn on the Music system in car
+	    }
+	}		
+	
+// Object instantiation
+	Car toyotaCamry = new Car();
+	toyotaCamry.make = "Toyota";
+	toyotaCamry.model = "Camry";
+	toyotaCamry.yearOfManufacture = 2022;
+	toyotaCamry.color = "Silver";
+	toyotaCamry.engineCapacity = 2.5;
+	
+	// Using object methods
+	toyotaCamry.startEngine();
+	toyotaCamry.accelerate();
+	toyotaCamry.brake();
+	toyotaCamry.startMusic();
+
+
+-In this example, the class "Car" defines the structure and behavior, 
+-and the object "toyotaCamry" is a specific instance of that class with its own set of attribute values.
+===================================================================================================================
+
+What are characteristics of object? Explain them?
+
+Ans:-
+
+-Objects in object-oriented programming (OOP) have several characteristics that define their behavior and interactions. 
+-These characteristics help in organizing and modeling real-world entities in a programming environment. The main characteristics of objects are:
+
+1) Identity:
+
+-Explanation: 
+	Each object has a unique identity, which allows it to be distinguished from other objects. This identity is often represented by a memory address or a unique identifier.
+Example: In a "Person" class, each individual person object would have a distinct identity, allowing you to differentiate between them.
+State:
+
+Explanation: The state of an object represents the values of its attributes at a particular point in time. These attributes define the object's characteristics or properties.
+Example: For a "Car" object, the state would include attributes like make, model, year, and current speed.
+Behavior:
+
+Explanation: Objects can perform actions or exhibit behavior through methods or functions. These methods define the operations that the object can carry out.
+Example: A "Dog" object might have behavior such as barking, fetching, and eating, implemented through methods.
+Encapsulation:
+
+Explanation: Encapsulation is the bundling of data (attributes) and the methods that operate on that data into a single unit or class. It hides the internal details of the object and exposes only what is necessary.
+Example: In a "BankAccount" class, encapsulation ensures that the account balance can only be accessed or modified through defined methods like deposit and withdraw.
+Abstraction:
+
+Explanation: Abstraction involves simplifying complex systems by modeling classes based on the essential features they share. It focuses on what an object does rather than how it achieves its functionality.
+Example: In a "Shape" class, abstraction allows you to define common features like area and perimeter without specifying the details for specific shapes.
+Polymorphism:
+
+Explanation: Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables methods to be applied to objects of various types, providing flexibility and extensibility.
+Example: In a "Shape" hierarchy, polymorphism allows you to call a common method like "calculateArea" on objects of different shapes (e.g., Circle, Square) without knowing their specific types.
+Inheritance:
+
+Explanation: Inheritance allows a class (subclass) to inherit properties and behaviors from another class (superclass). It promotes code reuse and establishes a hierarchy among classes.
+Example: In a "Vehicle" class hierarchy, a "Car" class can inherit common attributes and methods from the more general "Vehicle" class.
+These characteristics collectively contribute to the flexibility, modularity, and organization of code in object-oriented programming, making it a powerful paradigm for software development.
+
+

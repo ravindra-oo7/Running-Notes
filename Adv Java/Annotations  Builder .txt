@@ -1,0 +1,111 @@
+@Builder :-
+
+-The @Builder annotation in Java, often used in conjunction with Lombok, 
+is a convenient way to implement the Builder pattern for your classes. 
+-This annotation generates a builder class with methods for conveniently constructing instances of your class, especially when dealing with objects that have many optional parameters.
+
+Here's a basic example of using @Builder:
+
+
+	import lombok.Builder;
+	import lombok.Getter;
+	
+	@Getter
+	@Builder
+	public class Person {
+	    private String firstName;
+	    private String lastName;
+	    private int age;
+	    private String address;
+	}
+
+
+	// Usage:
+
+	Person person = Person.builder()
+	    .firstName("John")
+	    .lastName("Doe")
+	    .age(30)
+	    .address("123 Main St")
+	    .build();
+
+
+In this example:
+
+-The @Builder annotation is applied to the Person class.
+-Lombok generates a PersonBuilder inner class with methods for setting each field.
+-The build() method creates an instance of Person with the specified values.
+-The @Builder annotation simplifies the creation of instances by providing a fluent API for setting values. 
+-It's especially useful when dealing with classes that have a large number of optional parameters or when you want to create immutable objects.
+
+Additional features of @Builder:
+
+1) Default Values:
+
+-You can provide default values for fields using the @Builder.Default annotation.
+
+
+	@Builder
+	public class Person {
+	    private String firstName;
+	    private String lastName;
+	    @Builder.Default
+	    private int age = 25;
+	    private String address;
+	}
+
+
+2) Chaining:
+
+-The generated builder methods return the builder instance, allowing for method chaining.
+
+
+	Person person = Person.builder()
+	    .firstName("John")
+	    .lastName("Doe")
+	    .age(30)
+	    .address("123 Main St")
+	    .build();
+
+
+3) Fluent API:
+
+-The generated builder provides a fluent API for setting values, making the code more readable.
+
+
+Person.builder().firstName("John").lastName("Doe").build();
+
+
+4) Builder Customization:
+
+-You can customize the builder class by providing your own methods in the original class.
+
+
+	@Builder
+	public class Person {
+	    private String firstName;
+	    private String lastName;
+	
+	    public static class PersonBuilder {
+	        // Custom methods
+	    }
+	}
+
+
+-The @Builder annotation, along with other Lombok annotations, helps reduce boilerplate code and improves the readability of your code when dealing with complex object creation scenarios.
+
+==============================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+

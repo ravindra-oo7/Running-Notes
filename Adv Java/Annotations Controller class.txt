@@ -1,0 +1,102 @@
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+	
+	
+	//POST- create user
+	
+	@PostMapping("/")
+	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto)
+	{
+		UserDto createdUserDto = this.userService.createUser(userDto);
+		return new ResponseEntity<>(createdUserDto,HttpStatus.CREATED);
+	}
+	
+	
+	//PUT- update user
+	
+	@PutMapping("/{userId}") //path URI variable{userId}
+	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@PathVariable("userId") Integer uid)
+	{
+		UserDto updatedUser = this.userService.updateUser(userDto, uid);
+		return ResponseEntity.ok(updatedUser);
+	}
+	
+	//DELETE- delete user
+	
+	@DeleteMapping("/{userId}")
+	public ResponseEntity<ApiResponse> deleteUser(@PathVariable("userId") Integer uid)
+	{
+		this.userService.deleteUser(uid);
+		return new ResponseEntity<ApiResponse>(new ApiResponse("User deleted Successfully",true),HttpStatus.OK);
+	}
+	
+	
+	//GET- user getAll
+	@GetMapping("/")
+	public ResponseEntity<List<UserDto>> getAllUsers()
+	{
+		return ResponseEntity.ok(this.userService.getAllUsers());
+	}
+	
+	//GET- user get Single User
+	@GetMapping("/{userId}")
+	public ResponseEntity<UserDto> getSingleUser(@PathVariable Integer userId)
+	{
+		return ResponseEntity.ok(this.userService.getUserById(userId));
+	}
+	
+}
+
+
+1) @RestController: 
+-This annotation is a specialized version of the @Controller annotation. 
+-It indicates that the class is a controller in a Spring MVC application and is responsible for handling incoming HTTP requests. 
+-The @RestController annotation combines the @Controller and @ResponseBody annotations, 
+-indicating that the return values from the methods should be directly written into the response body.
+
+2) @RequestMapping("/api/users"): 
+-This annotation is used at the class level to specify the base URI for all the endpoints within this controller. 
+-In this case, all endpoints in UserController will be under the base path "/api/users".
+
+3) @Autowired: 
+-This annotation is used to automatically inject dependencies into the class. 
+-In this case, the UserService dependency is injected into the UserController.
+
+4) @PostMapping("/"): 
+-This annotation is used to handle HTTP POST requests. 
+-The "/" path specifies the endpoint URI for the createUser method.
+
+5) @GetMapping("/"): 
+-This annotation is used to handle HTTP GET requests. 
+-The "/" path specifies the endpoint URI for the getAllUsers method.
+
+6) @RequestBody: 
+-This annotation is used to indicate that a method parameter should be bound to the body of the HTTP request. 
+-In this case, the UserDto parameter of the createUser method will be populated with the JSON data from the request body.
+
+7) @PutMapping("/{userId}"): 
+-This annotation is used to handle HTTP PUT requests. 
+-The {userId} in the path specifies a variable part of the URI, and it is mapped to the uid parameter in the updateUser method using @PathVariable.
+
+8) @DeleteMapping("/{userId}"): 
+-This annotation is used to handle HTTP DELETE requests. 
+-The {userId} in the path specifies the user ID to be deleted, and it is mapped to the uid parameter in the deleteUser method using @PathVariable.
+
+9) @GetMapping("/{userId}"): 
+-This annotation is used to handle HTTP GET requests for a specific user ID. 
+-The {userId} in the path is a variable part of the URI and is mapped to the userId parameter in the getSingleUser method using @PathVariable.
+
+10) ResponseEntity: 
+-This class is used to represent the entire HTTP response, including the status code, headers, and body. 
+-It allows you to customize the response sent back to the client.
+
+11) HttpStatus: 
+-An enumeration representing HTTP status codes. 
+-It is used in conjunction with ResponseEntity to set the HTTP status of the response.
+
+-These annotations help define the behavior of the Spring MVC controller, 
+-specifying how it handles different types of HTTP requests and how it maps URI patterns to methods.

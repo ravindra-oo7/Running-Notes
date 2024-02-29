@@ -1,0 +1,36 @@
+
+@SpringBootApplication :-
+
+
+-It is a meta-annotation that combines three essential annotations:
+
+1) @Configuration: 
+-Indicates that the class can be used by the Spring IoC container as a source of bean definitions. 
+-In other words, it is a configuration class that defines the application context.
+
+2) @EnableAutoConfiguration: 
+-Enables Spring Boot's auto-configuration feature. 
+-Auto-configuration automatically configures the Spring application based on the dependencies present in the classpath.
+-This helps reduce the need for explicit configuration.
+
+3) @ComponentScan: 
+-Instructs Spring to scan and discover beans (components, services, controllers, etc.) within the specified package and its sub-packages. 
+-It enables Spring to find and register components in the application context.
+
+-By using @SpringBootApplication, you are essentially combining these three annotations into one, making it convenient and concise. 
+-It is a convenient way to bootstrap a Spring Boot application with sensible defaults and reduce the amount of boilerplate configuration code.
+
+-Here's a breakdown of how you would achieve the same effect without
+
+	@Configuration
+	@EnableAutoConfiguration
+	@ComponentScan(basePackages = "com.codewithravi.blog")
+	public class BlogAppApisApplication {
+	    public static void main(String[] args) {
+	        SpringApplication.run(BlogAppApisApplication.class, args);
+	    }
+	}
+
+
+-Using @SpringBootApplication is equivalent to the above configuration. 
+-It promotes convention over configuration and simplifies the setup of a Spring Boot application.

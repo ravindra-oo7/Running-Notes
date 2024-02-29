@@ -1,0 +1,49 @@
+
+
+@Service
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	private UserRepo userRepo;
+ 	
+	@Override
+	public UserDto createUser(UserDto userDto) {
+
+		User user = this.dtoToUser(userDto); 
+		User savedUser = this.userRepo.save(user);
+		return this.userToDto(savedUser);
+	}
+	
+}
+
+
+
+1) @Service: 
+-This annotation is part of the Spring Framework and is used to indicate that a class is a service bean. 
+-It tells Spring to consider it as a service and manage its lifecycle within the Spring container.
+
+2) @Autowired: 
+-This annotation is used to automatically inject dependencies into the class. 
+-In the UserServiceImpl class, private UserRepo userRepo is annotated with @Autowired, which means that an instance of UserRepo will be automatically injected by the Spring container.
+
+3) @AllArgsConstructor: 
+-This annotation is from the Lombok library. 
+-It generates a constructor with parameters for all class fields. 
+-In this case, it is used on the class level, so a constructor with a parameter for UserRepo will be generated. 
+-This reduces boilerplate code by eliminating the need to write constructors manually.
+
+4) @Override: 
+-This annotation indicates that a method in a subclass is intended to override a method of the superclass. 
+-In Java, it is a good practice to use the @Override annotation to ensure that you are actually overriding a method and not accidentally creating a new one.
+
+5) @Repository: 
+-The @Repository annotation is used to indicate that a class acts as a data repository, typically for a database. 
+-It is often applied to classes implementing Spring Data JPA repositories, but in this case, @Service is used to designate the service layer.
+
+-These annotations help define the structure and behavior of the Spring service implementation (UserServiceImpl). 
+-They leverage Spring's features for dependency injection, bean management, and lifecycle control. 
+-The Lombok annotation (@AllArgsConstructor) simplifies constructor generation, reducing code verbosity.
+
+
+
+

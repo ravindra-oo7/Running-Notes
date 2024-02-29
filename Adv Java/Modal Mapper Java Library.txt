@@ -1,0 +1,65 @@
+## Model Mapper ##
+
+
+-ModelMapper is a Java library that simplifies the process of mapping objects from one type to another. 
+-It is often used in applications where data needs to be transferred between different layers, such as from entities to DTOs (Data Transfer Objects) or vice versa.
+
+Key features of ModelMapper:
+
+1) Automatic Mapping: 
+-ModelMapper can automatically map fields with the same name and type from one object to another. 
+-You don't need to write explicit mapping code for every field if the field names and types match.
+
+2) Type Conversion: 
+-ModelMapper supports type conversion between different data types. 
+-If the source and destination fields have different types, it can attempt to convert the data appropriately.
+
+3) Custom Mappings: 
+-You can define custom mappings for specific cases where the default mapping behavior is not sufficient. 
+-This allows you to have fine-grained control over the mapping process.
+
+4) Fluent API: 
+-ModelMapper provides a fluent API for configuring mappings. 
+-This allows you to customize the mapping behavior using a chain of method calls.
+
+Here's a simple example of how you might use ModelMapper:
+
+import org.modelmapper.ModelMapper;
+
+public class Example {
+    public static void main(String[] args) {
+        // Create a ModelMapper instance
+        ModelMapper modelMapper = new ModelMapper();
+
+        // Define source and destination classes
+        class Source {
+            private String name;
+            private int age;
+
+            // getters and setters
+        }
+
+        class Destination {
+            private String fullName;
+            private int yearsOld;
+
+            // getters and setters
+        }
+
+        // Create instances of source and destination
+        Source source = new Source();
+        source.setName("John");
+        source.setAge(25);
+
+        // Perform the mapping
+        Destination destination = modelMapper.map(source, Destination.class);
+
+        // Print the result
+        System.out.println(destination.getFullName()); // Output: John
+        System.out.println(destination.getYearsOld()); // Output: 25
+    }
+}
+
+
+-In this example, ModelMapper is used to automatically map fields with the same name and type from the Source class to the Destination class. 
+-The library takes care of copying values and handling type conversions.
