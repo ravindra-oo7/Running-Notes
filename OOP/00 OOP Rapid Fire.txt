@@ -1,5 +1,5 @@
 Que 01. what is Object oriented concept? 
-what is difference between object-based, object-oriented and fully object-oriented language?
+	what is difference between object-based, object-oriented and fully object-oriented language?
 
 Ans:-
 - Object-oriented programming (OOP) is a programming paradigm that organizes code into objects, which are instances of classes. 
@@ -55,7 +55,7 @@ Ans:-
 ================================================================================================================
 
 Que 02. What are advantages of Object Oriented Programming?
-What is Data Security?
+	What is Data Security?
 
 Ans:-
 # Advantages of Object-Oriented Programming (OOP):
@@ -193,7 +193,7 @@ Key aspects of data security include:
 Data security is crucial in various domains, including business, healthcare, finance, and government, to safeguard sensitive information and maintain the trust of users and stakeholders.
 
 ====================================================================================================================
-What is class and object ? give real life example.
+Que 03. What is class and object ? give real life example.
 
 Ans:-
 
@@ -287,7 +287,7 @@ Methods (Instance Methods):
 -and the object "toyotaCamry" is a specific instance of that class with its own set of attribute values.
 ===================================================================================================================
 
-What are characteristics of object? Explain them?
+Que 04. What are characteristics of object? Explain them?
 
 Ans:-
 
@@ -295,34 +295,429 @@ Ans:-
 -These characteristics help in organizing and modeling real-world entities in a programming environment. The main characteristics of objects are:
 
 1) Identity:
+-Each object has a unique identity, which allows it to be distinguished from other objects. 
+-This identity is often represented by a memory address or reference to the object.
 
--Explanation: 
-	Each object has a unique identity, which allows it to be distinguished from other objects. This identity is often represented by a memory address or a unique identifier.
-Example: In a "Person" class, each individual person object would have a distinct identity, allowing you to differentiate between them.
-State:
+2) State:
+-The state of an object represents the values of its attributes at a particular point in time. 
+-These attributes define the object's characteristics or properties.
+-Example: For a "Car" object, the state would include attributes like 
+	maker, model, year, and current speed.
 
-Explanation: The state of an object represents the values of its attributes at a particular point in time. These attributes define the object's characteristics or properties.
-Example: For a "Car" object, the state would include attributes like make, model, year, and current speed.
-Behavior:
+3) Behavior:
+-Objects can perform actions or exhibit behavior through methods or functions. 
+-These methods define the operations that the object can carry out.
+-Example: A "Dog" object might have behavior such as barking, fetching, and eating, implemented through methods.
 
-Explanation: Objects can perform actions or exhibit behavior through methods or functions. These methods define the operations that the object can carry out.
-Example: A "Dog" object might have behavior such as barking, fetching, and eating, implemented through methods.
-Encapsulation:
+4) Encapsulation:
+-Encapsulation is the bundling of data (attributes) and the methods that operate on that data into a single unit or class. 
+-It hides the internal details of the object and exposes only what is necessary.
+-Example: In a "BankAccount" class, encapsulation ensures that the account balance can only be accessed or modified through defined methods like deposit and withdraw.
 
-Explanation: Encapsulation is the bundling of data (attributes) and the methods that operate on that data into a single unit or class. It hides the internal details of the object and exposes only what is necessary.
-Example: In a "BankAccount" class, encapsulation ensures that the account balance can only be accessed or modified through defined methods like deposit and withdraw.
-Abstraction:
+5) Abstraction:
+-Abstraction involves simplifying complex systems by modeling classes based on the essential features they share. 
+-It focuses on what an object does rather than how it achieves its functionality.
 
-Explanation: Abstraction involves simplifying complex systems by modeling classes based on the essential features they share. It focuses on what an object does rather than how it achieves its functionality.
-Example: In a "Shape" class, abstraction allows you to define common features like area and perimeter without specifying the details for specific shapes.
-Polymorphism:
+6) Polymorphism:
+-Polymorphism allows objects of different classes to be treated as objects of a common superclass. 
+-It enables methods to be applied to objects of various types, providing flexibility and extensibility.
+-Example: In a "Shape" hierarchy, polymorphism allows you to call a common method like "calculateArea" on objects of different shapes (e.g., Circle, Square) without knowing their specific types.
 
-Explanation: Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables methods to be applied to objects of various types, providing flexibility and extensibility.
-Example: In a "Shape" hierarchy, polymorphism allows you to call a common method like "calculateArea" on objects of different shapes (e.g., Circle, Square) without knowing their specific types.
-Inheritance:
+7) Inheritance:
+-Inheritance allows a class (subclass) to inherit properties and behaviors from another class (superclass). 
+-It promotes code reuse and establishes a hierarchy among classes.
+-Example: In a "Vehicle" class hierarchy, a "Car" class can inherit common attributes and methods from the more general "Vehicle" class.
 
-Explanation: Inheritance allows a class (subclass) to inherit properties and behaviors from another class (superclass). It promotes code reuse and establishes a hierarchy among classes.
-Example: In a "Vehicle" class hierarchy, a "Car" class can inherit common attributes and methods from the more general "Vehicle" class.
 These characteristics collectively contribute to the flexibility, modularity, and organization of code in object-oriented programming, making it a powerful paradigm for software development.
 
+==============================================================================================================
+
+Que 05. What is the need of getter and setter functions in class?
+
+Ans:- 
+
+-Getter and setter functions (also known as accessor and mutator methods) in a class are used to access and modify the private attributes of the class. 
+-They play a crucial role in achieving encapsulation, which is one of the key principles of object-oriented programming (OOP). 
+
+-Here's why getter and setter functions are needed:
+
+1) Encapsulation:
+
+# Need:
+-Encapsulation involves bundling the data (attributes) and methods that operate on that data into a single unit (class).
+-It helps hide the internal details of the object and exposes only what is necessary.
+# Role of Getter and Setter: 
+-Getter methods provide controlled access to the private attributes, allowing external code to retrieve their values. Setter methods, on the other hand, enable controlled modification of these attributes.
+
+2) Controlled Access:
+
+# Need: 
+-Not all attributes of a class should be directly accessible from outside the class. 
+-Some attributes may need to be read-only or write-only, while others may be read-write.
+# Role of Getter and Setter: 
+-Getter methods provide read access to the attributes, and setter methods provide write access. 
+-By controlling access through methods, the class can enforce constraints or perform additional logic when accessing or modifying attributes.
+
+3) Validation and Logic:
+
+# Need: 
+-Sometimes, it's necessary to perform validation or include additional logic when getting or setting attribute values. 
+-Direct access to attributes might bypass such logic.
+# Role of Getter and Setter: 
+-Getter and setter methods allow the class to incorporate validation checks, constraints, or calculations. 
+-For example, a setter method for an age attribute might check that the age is non-negative.
+
+4) Flexibility:
+
+# Need: 
+-The internal representation of data within a class may change over time.
+-Direct access to attributes would tightly couple external code to the internal implementation.
+# Role of Getter and Setter: 
+-Getter and setter methods act as an abstraction layer, providing a stable interface to external code. 
+-The internal implementation can change without affecting the external code using the class.
+
+5) Maintaining Consistency:
+
+# Need: 
+-Sometimes, modifications to one attribute might require updates or adjustments in related attributes to maintain consistency.
+# Role of Getter and Setter: 
+-Setter methods can be used to update related attributes or trigger other actions, ensuring that the class remains in a consistent state.
+
+6) Debugging and Logging:
+
+# Need: 
+-During development and debugging, it can be helpful to log or track changes to attribute values.
+# Role of Getter and Setter: 
+-By encapsulating access through getter and setter methods, you can add logging or debugging statements to monitor when and how attributes are accessed or modified.
+
+-In summary, getter and setter functions are essential for 
+.encapsulation
+.providing controlled access to the attributes of a class
+.enabling validation, maintaining flexibility
+.ensuring consistent behavior in response to attribute changes
+
+They contribute to the overall robustness and maintainability of the codebase.
+
+====================================================================================================================
+
+Que 06. What is abstraction and encapsulation ? Give real-life example.
+
+Ans:-
+
+## Abstraction : 
+-Abstraction is a fundamental concept in object-oriented programming (OOP) 
+-that involves simplifying complex systems by modeling classes based on the essential features they share. 
+-It focuses on what an object does rather than how it achieves its functionality. 
+-Abstraction allows developers to represent the relevant aspects of an object while hiding unnecessary details.
+
+# Real-Life Example:
+-Consider the concept of a "Vehicle." 
+-In the real world, there are various types of vehicles, such as cars, bicycles, and airplanes. 
+-Abstraction helps in creating a common representation for all these diverse vehicles based on shared characteristics. 
+-The essential features might include methods like "start," "accelerate," and "stop," and attributes like "speed" and "fuel level." 
+-By abstracting these common features into a "Vehicle" class, you create a generalized blueprint that captures the essential aspects of all vehicles without worrying about the specific details of each type.
+
+
+// Abstraction through a Vehicle class
+	class Vehicle {
+	    int speed;
+	    int fuelLevel;
+	
+	    void start() {
+	        // Code to start the vehicle
+	    }
+	
+	    void accelerate() {
+	        // Code to accelerate the vehicle
+	    }
+	
+	    void stop() {
+	        // Code to stop the vehicle
+	    }
+	}
+	
+// Concrete implementation for a car
+	class Car extends Vehicle {
+	    // Additional attributes and methods specific to a car
+	    int numberOfDoors;
+	    
+	    void openTrunk() {
+	        // Code to open the car's trunk
+	    }
+	}
+		
+// Concrete implementation for a bicycle	
+	class Bicycle extends Vehicle {
+	    // Additional attributes and methods specific to a bicycle
+	    int numberOfWheels;
+	
+	    void ringBell() {
+	        // Code to ring the bicycle's bell
+	    }
+	}
+
+-In this example, the "Vehicle" class represents the abstraction of common features shared by all vehicles. 
+-Concrete classes like "Car" and "Bicycle" inherit from the "Vehicle" class, providing specific details for each type of vehicle.
+
+## Encapsulation :
+
+-Encapsulation is another key OOP concept that involves bundling the data (attributes) and methods (functions) that operate on that data into a single unit or class. 
+-It helps hide the internal details of the object and exposes only what is necessary. 
+-Encapsulation provides a protective barrier and 
+-ensures that the object's internal state is accessed and modified through well-defined interfaces.
+
+# Real-Life Example:
+-Consider the concept of a "BankAccount." 
+-Encapsulation helps in encapsulating the account details and operations within a class, restricting direct access to the account balance and other sensitive information. 
+-Getter and setter methods are used to provide controlled access to these attributes, ensuring that changes to the account balance adhere to specific rules or constraints.
+
+// Encapsulation through a BankAccount class
+	class BankAccount {
+	    private double balance;
+	    private String accountHolder;
+	
+	    public double getBalance() {
+	        return balance;
+	    }
+	    public String getAccountHolder() {
+       		return accountHolder;
+	    }
+
+	    public void setBalance(double newBalance) {
+	        if (newBalance >= 0) {
+	            balance = newBalance;	
+	        } else {
+	            System.out.println("Invalid balance value.");
+	        }
+	    }
+		
+	    public void setAccountHolder(String newAccountHolder) {
+	        accountHolder = newAccountHolder;
+	    }
+	
+	    public void deposit(double amount) {
+	        // Code to handle deposit operation
+	    }
+	
+	    public void withdraw(double amount) {
+	        // Code to handle withdrawal operation
+	    }
+	}
+
+
+-In this example, the "BankAccount" class encapsulates the private attributes like "balance" and "accountHolder." 
+-The encapsulation ensures that external code can only interact with these attributes through the defined getter and setter methods, allowing for controlled access and modification. 
+-It helps maintain the integrity of the bank account and provides a clear interface for interacting with the object.
+
+============================================================================================================================
+
+Que 07. What is polymorphism ? What is its types ? Explain them with examples.
+
+Ans :-
+
+# Polymorphism:
+-Polymorphism is a concept in object-oriented programming (OOP)
+-It allows objects to be treated as instances of their parent class rather than their actual class. 
+-It enables a single interface to represent various types of objects, promoting flexibility and extensibility in the code.
+
+Types of Polymorphism:
+
+1) Compile-time Polymorphism (Static Binding or Method Overloading):
+
+-Occurs when multiple methods in the same class have the same name but different parameters (type or number of parameters).
+
+
+	public class Calculator {
+	    // Method Overloading
+	    public int add(int a, int b) {
+	        return a + b;
+	    }
+	
+	    public double add(double a, double b) {
+	        return a + b;
+	    }
+	}
+
+-In this example, the add method is overloaded with different parameter types (int and double).
+
+2) Run-time Polymorphism (Dynamic Binding or Method Overriding):
+
+-Occurs when a subclass provides a specific implementation of a method that is already defined in its superclass. 
+-The method in the subclass overrides the method in the superclass.
+
+// Superclass
+	class Animal {
+	    public void sound() {
+	        System.out.println("Animal makes a sound");
+	    }
+	}
+	
+// Subclass
+	class Dog extends Animal {
+	    // Method Overriding
+	    public void sound() {
+	        System.out.println("Dog barks");
+	    }
+	}
+
+	public class PolymorphismExample {
+ 	   public static void main(String[] args) {
+	        Animal animal = new Dog(); // Upcasting
+	        animal.sound(); // Calls the overridden method in Dog
+	    }
+	}
+
+-In this example, Dog extends Animal and overrides the sound method. 
+-During runtime, the sound method of the Dog class is invoked.
+
+3) Parametric Polymorphism (Generics):
+
+-Involves writing code that can work with a variety of data types without specifying them beforehand. 
+-Generics enable the creation of classes, methods, or interfaces that can operate on different types.
+
+
+// Generic class
+	class Box<T> {
+	    private T content;
+	
+	    public void setContent(T content) {
+	        this.content = content;
+	    }
+	
+	    public T getContent() {
+	        return content;
+	    }
+	}
+	
+	public class GenericsExample {
+	    public static void main(String[] args) {
+	        Box<Integer> integerBox = new Box<>();
+	        Box<String> stringBox = new Box<>();
+	
+	        integerBox.setContent(42);
+	        stringBox.setContent("Hello, Generics!");
+	
+	        System.out.println("Integer Box Content: " + integerBox.getContent());
+	        System.out.println("String Box Content: " + stringBox.getContent());
+	    }
+	}
+
+
+-In this example, the Box class is generic, allowing it to hold different types of content without code duplication.
+
+-Polymorphism enhances code flexibility, reusability, and readability 
+by allowing different implementations to be used interchangeably 
+based on their common interface or shared behavior.
+================================================================================================================
+
+Que 08. What is method overloading ? Which are the rules of method overloading ?
+
+Ans :-
+
+# Method Overloading :
+-Method overloading is a feature in object-oriented programming 
+-It allows a class to have multiple methods with the same name but different parameter lists within the same scope (class or interface). 
+-The methods must be in the same class and have unique parameter signatures, which may include a different number or type of parameters.
+
+# Rules of Method Overloading:
+
+1) Parameter List:
+-Methods must have a different parameter list. 
+-This can involve a difference in the number or types of parameters.
+
+	public class Example {
+	    // Method Overloading
+	    public void doSomething(int x) {
+	        // Code
+	    }
+
+	    public void doSomething(int x, int y) {
+	        // Code
+	    }
+	}
+
+2) Parameter Types:
+-The types of parameters must differ in order to distinguish between the overloaded methods.
+
+	public class Example {
+	    // Method Overloading
+	    public void printInfo(String name) {
+	        // Code
+	    }
+	
+	    public void printInfo(int age) {
+	        // Code
+	    }
+	}
+
+3) Parameter Order:
+-The order of parameters should be different to avoid ambiguity.
+
+	public class Example {
+	    // Method Overloading
+	    public void displayInfo(int age, String name) {
+	        // Code
+	    }
+	
+	    public void displayInfo(String name, int age) {
+	        // Code
+	    }
+	}
+
+4) Return Type: 
+-The return type is not considered when overloading methods. 
+-Methods with the same name and parameter list (types and order) but different return types will result in a compilation error.
+
+	public class Example {
+	    // Compilation error: Conflicting return type
+	    public int calculate(int x, int y) {
+	        // Code
+	    }
+	
+	    // Compilation error: Conflicting return type
+	    public double calculate(int x, int y) {
+	        // Code
+	    }
+	}
+
+# Why Return Type is Not Considered in Method Overloading:
+
+-During method overloading the method's signature is determined by its name and parameter list. 
+-Overloading is all about providing multiple methods with the same name but different ways of accepting and processing input. 
+-The return type alone is not sufficient to uniquely identify a method, as multiple methods can have the same return type.
+
+-Consideration of return type in method overloading would lead to ambiguity, and it would complicate the method resolution process. 
+-Overloaded methods must be easily distinguishable based on the provided arguments. Since the return type is not part of the method's signature, it does not contribute to the distinction between overloaded methods.
+
+-In summary, method overloading focuses on the name and parameters of methods, 
+-The return type is excluded from consideration to simplify the language rules and avoid potential conflicts.
+
+========================================================================================================================
+
+Que 09. What are different types of hierarchy ?
+	When to use which one ?
+
+Ans :-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 

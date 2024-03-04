@@ -1,0 +1,169 @@
+## Abstract Class vs. Interface:
+
+# Abstract Class:
+
+-An abstract class is a class that cannot be instantiated on its own and may contain abstract methods (methods without a body).
+-It can have a mix of abstract and concrete (implemented) methods.
+-An abstract class can have instance variables (attributes) and constructors.
+-It supports the concept of single inheritance (a class can extend only one abstract class).
+-Abstract classes are useful when you want to provide a common base for multiple derived classes to share code and behavior.
+
+Abstract Class Example:
+
+// Abstract class representing a geometric shape
+	abstract class Shape {	
+	    // Abstract method to calculate area (to be implemented by subclasses)
+	    abstract double calculateArea();
+	
+	    // Concrete method to display information about the shape
+	    void displayInfo() {
+	        System.out.println("This is a geometric shape.");
+	    }
+	}
+	
+// Concrete subclass representing a rectangle
+	class Rectangle extends Shape {
+	    double length;
+	    double width;
+	
+	    Rectangle(double length, double width) {
+	        this.length = length;
+	        this.width = width;
+	    }
+	
+	    // Implementation of the abstract method 
+	    @Override
+   	    double calculateArea() {
+	        return length * width;
+	    }
+	}
+	
+// Concrete subclass representing a circle
+	class Circle extends Shape {
+	    double radius;
+	
+	    Circle(double radius) {
+	        this.radius = radius;
+	    }
+	
+	    // Implementation of the abstract method 
+	    @Override
+	    double calculateArea() {
+	        return Math.PI * radius * radius;
+	    }
+	}
+	
+// Usage example
+	public class AbstractClassExample {
+	    public static void main(String[] args) {
+	        Rectangle rectangle = new Rectangle(5, 10);
+	        Circle circle = new Circle(7);
+	
+	        rectangle.displayInfo();
+	        System.out.println("Area of Rectangle: " + rectangle.calculateArea());
+	
+	        circle.displayInfo();
+	        System.out.println("Area of Circle: " + circle.calculateArea());
+	    }
+	}
+	
+
+-In this example, the Shape class is an abstract class with an abstract method calculateArea(). 
+-Concrete subclasses (Rectangle and Circle) extend the abstract class and provide implementations for the abstract method. 
+-The abstract class also has a concrete method, displayInfo, which is inherited by the subclasses.
+
+# Interface:
+
+-An interface is a collection of abstract methods that a class can choose to implement. 
+-It is a contract specifying a set of methods that a class must provide.
+-All methods in an interface are abstract and do not have a body.
+-Interfaces cannot have instance variables or constructors.
+-A class can implement multiple interfaces, allowing for multiple inheritance of method signatures.
+-Interfaces are helpful when you want to define a common set of methods that can be implemented by unrelated classes, promoting code reusability.
+
+-In summary, abstract classes provide a mix of abstract and concrete methods, support instance variables, and allow for single inheritance. 
+-Interfaces, on the other hand, consist only of abstract methods, support multiple inheritance, and are useful for defining common contracts across unrelated classes.
+
+Interface Example:
+
+// Interface representing a geometric shape
+	interface Shape {
+	    // Abstract method to calculate area
+	    double calculateArea();
+	
+	    // Abstract method to get the shape type
+	    String getShapeType();
+	}
+	
+// Concrete class representing a rectangle
+	class Rectangle implements Shape {
+	    double length;
+	    double width;
+	
+	    Rectangle(double length, double width) {
+	        this.length = length;
+	        this.width = width;
+	    }
+	
+	    // Implementation of the calculateArea method for a rectangle
+	    @Override
+	    public double calculateArea() {
+	        return length * width;
+	    }
+	
+	    // Implementation of the getShapeType method for a rectangle
+	    @Override
+	    public String getShapeType() {
+	        return "Rectangle";
+	    }
+	}
+	
+// Concrete class representing a circle
+	class Circle implements Shape {
+	    double radius;
+	
+	    Circle(double radius) {
+	        this.radius = radius;
+	    }
+	
+	    // Implementation of the calculateArea method for a circle
+	    @Override
+	    public double calculateArea() {
+	        return Math.PI * radius * radius;
+	    }
+	
+	    // Implementation of the getShapeType method for a circle
+	    @Override
+	    public String getShapeType() {
+	        return "Circle";
+	    }
+	}
+	
+// Usage example
+	public class InterfaceExample {
+	    public static void main(String[] args) {
+	        Rectangle rectangle = new Rectangle(5, 10);
+	        Circle circle = new Circle(7);
+	
+	        System.out.println(rectangle.getShapeType() + " - Area: " + rectangle.calculateArea());
+	        System.out.println(circle.getShapeType() + " - Area: " + circle.calculateArea());
+	    }
+	}
+
+-In this example, the Shape interface defines two abstract methods: 
+	calculateArea() and getShapeType(). 
+-Concrete classes (Rectangle and Circle) implement these methods. 
+-The interface allows unrelated classes to share a common set of methods, promoting code reusability.
+
+=============================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
